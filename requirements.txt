@@ -1,0 +1,13 @@
+appdirs==1.4.4
+autograd==1.3
+autoray==0.2.5
+future==0.18.2
+networkx==2.6.3
+numpy==1.21.2
+pennylane==0.17.0
+scipy==1.7.1
+semantic-version==2.6
+toml==0.10.2
+
+matplotlib~=3.4.3
+scikit-learn~=0.24.2
