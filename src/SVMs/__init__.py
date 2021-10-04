@@ -1,15 +1,17 @@
 """
 In this module the data for SVMs is generated and local variables declared
 """
+import os
+
 from sklearn.datasets import make_moons
 import matplotlib.pyplot as plt
 import numpy as np
 
 from definitions import SEED, ROOT_DIR
 
-NUMBER_OF_SAMPLES = 50
+NUMBER_OF_SAMPLES = 10
 
-X, Y = make_moons(NUMBER_OF_SAMPLES, random_state=SEED, noise=0.2)
+X, Y = make_moons(NUMBER_OF_SAMPLES, random_state=SEED, noise=0.34)
 
 x_axis_limit = [-3, 3]
 y_axis_limit = [-2.5, 2.5]
@@ -23,8 +25,11 @@ def make_meshgrid(x, y, h=.02):
 
 
 def plot_contours(ax, clf, xx, yy, **params):
+    print('Here?')
     Z = clf.predict(np.c_[xx.ravel(), yy.ravel()])
+    print('here?')
     Z = Z.reshape(xx.shape)
+    print('h?')
     out = ax.contourf(xx, yy, Z, **params)
     return out
 
@@ -34,11 +39,15 @@ def save_decision_boundary_image(X, Y, filename: str, fitted_model):
     title = 'Decision Boundary'
     plt.xlim(x_axis_limit)
     plt.ylim(y_axis_limit)
+    print('hey')
     xx, yy = make_meshgrid(X[:, 0], X[:, 1])
+    print('hey')
     plot_contours(ax, fitted_model, xx, yy, cmap=plt.cm.coolwarm, alpha=0.8)
+    print('hey')
     ax.scatter(X[:, 0], X[:, 1], c=Y, cmap=plt.cm.coolwarm, s=20, marker='x')
+    print('hey')
     ax.set_title(title)
-
+    print('hey')
     fig.savefig(filename)
 
 
@@ -51,5 +60,8 @@ def save_plot_data(X, Y, title, filename):
     plt.ylim(y_axis_limit)
     fig.savefig(filename)
 
+
+if not os.path.isdir(ROOT_DIR + '/figures'):
+    os.mkdir(ROOT_DIR + '/figures')
 
 save_plot_data(X, Y, 'Dataset for SVMs', ROOT_DIR + '/figures/SVM_Data.png')
