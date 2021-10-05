@@ -39,21 +39,15 @@ def save_decision_boundary_image(X, Y, filename: str, fitted_model):
     title = 'Decision Boundary'
     plt.xlim(x_axis_limit)
     plt.ylim(y_axis_limit)
-    print('hey')
     xx, yy = make_meshgrid(X[:, 0], X[:, 1])
-    print('hey')
     plot_contours(ax, fitted_model, xx, yy, cmap=plt.cm.coolwarm, alpha=0.8)
-    print('hey')
     ax.scatter(X[:, 0], X[:, 1], c=Y, cmap=plt.cm.coolwarm, s=20, marker='x')
-    print('hey')
     ax.set_title(title)
-    print('hey')
     fig.savefig(filename)
 
 
 def save_plot_data(X, Y, title, filename):
     fig, ax = plt.subplots()
-    title = 'Decision Boundary'
     plt.scatter(X[:, 0], X[:, 1], c=Y, s=20, marker='x')
     ax.set_title(title)
     plt.xlim(x_axis_limit)
