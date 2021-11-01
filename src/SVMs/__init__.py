@@ -6,12 +6,17 @@ import os
 from sklearn.datasets import make_moons
 import matplotlib.pyplot as plt
 import numpy as np
+import pandas as pd
 
 from definitions import SEED, ROOT_DIR
 
 NUMBER_OF_SAMPLES = 10
+Xm, Ym = make_moons(NUMBER_OF_SAMPLES, random_state=SEED, noise=0.34)
 
-X, Y = make_moons(NUMBER_OF_SAMPLES, random_state=SEED, noise=0.34)
+data = pd.read_csv(ROOT_DIR + '/data/data_banknote_authentication.txt', header=None)
+
+X = data.iloc[:, :-1].to_numpy()
+Y = data.iloc[:, -1:].values.ravel()
 
 x_axis_limit = [-3, 3]
 y_axis_limit = [-2.5, 2.5]
@@ -58,4 +63,3 @@ def save_plot_data(X, Y, title, filename):
 if not os.path.isdir(ROOT_DIR + '/figures'):
     os.mkdir(ROOT_DIR + '/figures')
 
-save_plot_data(X, Y, 'Dataset for SVMs', ROOT_DIR + '/figures/SVM_Data.png')
