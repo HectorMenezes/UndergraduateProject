@@ -1,22 +1,26 @@
-import numpy as np
-import pandas as pd
-from sklearn.svm import SVC
+import time
 
-from definitions import ROOT_DIR
-from src.SVMs import X, Y
-data = pd.read_csv(ROOT_DIR + '/data/data_banknote_authentication.txt', header=None)
-
-csv_x = data.iloc[:, :-1]
-csv_y = data.iloc[:, -1:]
-
-print('Pandas')
-print(csv_x.to_numpy())
-print(csv_y.to_numpy())
-print('Original')
+from src.handler import create_model, evaluate_estimators
+from utils import argp, load_configuration
 
 
-model = SVC(random_state=42)
-model.fit(csv_x, csv_y.values.ravel())
+def main():
+    """
+    Main fuction called by the script.
+    """
+    start = time.time()
+    args = argp.parse_args()
+    configuration = load_configuration(args.configuration)
+   
+    
+    
+    for case in configuration.cases:
+        evaluate_estimators(**case.dict())
+        #create_model(**case.dict())
+        
 
+    end = time.time()
+    print(end - start)
 
-print(model.predict([[-2.7908,-5.7133,5.953,0.45946]]))
+if __name__ == "__main__":
+    main()

@@ -1,0 +1,13 @@
+{
+    "cases": [
+        {
+            "nature": "classical",
+            "algorithm": "svm",
+            "seed": 42,
+            "supervised": true,
+            "data": "suffled_data_banknote_authentication.txt",
+            "tech": "sklearn",
+            "local": true
+        }
+    ]
+}

@@ -21,8 +21,18 @@ qiskit = "*"
 tensorflow = "*"
 pandas = "*"
 qiskit-aqua = {extras = ["cvx"], version = "*"}
+argparse = "*"
+pydantic = "*"
+qiskit-machine-learning = "*"
+xcc = "*"
+python-dotenv = "*"
+xanadu-cloud-client = "*"
 
 [dev-packages]
+black = "*"
 
 [requires]
 python_version = "3.9"
+
+[pipenv]
+allow_prereleases = true

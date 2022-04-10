@@ -2,6 +2,8 @@
 This module implements the QSVM from [pennylane's documentation]
 (https://pennylane.ai/pennylane/demos/tutorial_kernels_module.html).
 """
+from typing import Any
+
 import pennylane
 from pennylane import numpy as np
 from sklearn.svm import SVC
@@ -52,25 +54,11 @@ def kernel(x1, x2, params):
     return kernel_circuit(x1, x2, params)[0]
 
 
-def generate():
+def untrained_model(seed: int = 42):
     init_params = random_params(num_wires=5, num_layers=6)
     init_kernel = lambda x1, x2: kernel(x1, x2, init_params)
-    return SVC(random_state=SEED, kernel=lambda X1, X2: pennylane.kernels.kernel_matrix(X1, X2, init_kernel)).fit(X, Y)
+    return SVC(random_state=seed, kernel=lambda X1, X2: pennylane.kernels.kernel_matrix(X1, X2, init_kernel)) 
 
+def generate(X :Any, Y: Any, seed: int = 42):
+    return untrained_model(seed).fit(X, Y)
 
-print('MAKE MOONs')
-print(f'{Xm}\n{Ym}')
-
-print('CVS FILE INPUTS/LABELS:')
-print(f'{X}\n{Y}')
-
-
-path_to_model = ROOT_DIR + '/src/SVMs/pennylane_svm.pickle'
-quantum_SVM_manager = Manager(model_file=path_to_model,
-                              generate_model=generate,
-                              model_type=Type.QUANTUM,
-                              technology=Technology.PENNYLANE)
-
-quantum_SVM_manager.save_model(path_to_model)
-print(quantum_SVM_manager.model.predict([[-2.5419,-0.65804,2.6842,1.1952]]))
-quantum_SVM_manager.make_summary('SUMMARY2.md', X, Y)

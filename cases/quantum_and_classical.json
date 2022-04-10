@@ -1,0 +1,20 @@
+{
+    "cases": [
+        {
+            "nature": "classical",
+            "algorithm": "svm",
+            "supervised": true,
+            "seed": 42,
+            "data": "data_banknote_authentication.txt",
+            "tech": "sklearn"
+        },
+        {
+            "nature": "quantum",
+            "algorithm": "svm",
+            "supervised": true,
+            "seed": 42,
+            "data": "data_banknote_authentication.txt",
+            "tech": "pennylane"
+        }
+    ]
+}

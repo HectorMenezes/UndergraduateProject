@@ -30,11 +30,10 @@ def make_meshgrid(x, y, h=.02):
 
 
 def plot_contours(ax, clf, xx, yy, **params):
-    print('Here?')
+    
     Z = clf.predict(np.c_[xx.ravel(), yy.ravel()])
-    print('here?')
+    
     Z = Z.reshape(xx.shape)
-    print('h?')
     out = ax.contourf(xx, yy, Z, **params)
     return out
 
