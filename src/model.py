@@ -8,7 +8,6 @@ from src.utils import ModelNature, Tech
 class Model:
     def __init__(
         self,
-        name: str,
         nature: ModelNature,
         algorithm: str,
         tech: Tech,
@@ -16,7 +15,6 @@ class Model:
         seed: int = 42,
         local: bool = True
     ) -> None:
-        self.name = name
         self.nature = nature
         self.algorithm = algorithm
         self.tech = tech
@@ -26,8 +24,7 @@ class Model:
 
     def __repr__(self) -> str:
         return (
-            f"<Model(name={self.name},"
-            f"nature={self.nature},"
+            f"<Model(nature={self.nature},"
             f"algorithm={self.algorithm},"
             f"tech={self.tech},"
             f"data={self.data},"
@@ -40,6 +37,6 @@ class Model:
 
     def evaluate_model_cv(self, X, Y, cv, estimator):
         start = time.time()
-        print(cross_val_score(estimator(seed=self.seed), X, Y, cv=5).mean())
+        mean = cross_val_score(estimator, X, Y, cv=cv).mean()
         end = time.time()
-        print(end - start)
+        return end - start, mean

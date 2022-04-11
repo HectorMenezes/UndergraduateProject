@@ -1,0 +1,13 @@
+sh run.sh -f cases/classical_svm_new.json -cv 5 -max 20
+sh run.sh -f cases/classical_svm_new.json -cv 5 -max 30
+sh run.sh -f cases/classical_svm_new.json -cv 5 -max 40
+sh run.sh -f cases/classical_svm_new.json -cv 5 -max 50
+sh run.sh -f cases/classical_svm_new.json -cv 5 -max 60
+sh run.sh -f cases/classical_svm_new.json -cv 5 -max 70
+sh run.sh -f cases/classical_svm_new.json -cv 5 -max 80
+sh run.sh -f cases/classical_svm_new.json -cv 5 -max 90
+sh run.sh -f cases/classical_svm_new.json -cv 5 -max 100
+sh run.sh -f cases/classical_svm_new.json -cv 5 -max 200
+sh run.sh -f cases/classical_svm_new.json -cv 5 -max 300
+sh run.sh -f cases/classical_svm_new.json -cv 5 -max 400
+sh run.sh -f cases/classical_svm_new.json -cv 5 -max 500

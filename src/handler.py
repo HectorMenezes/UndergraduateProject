@@ -1,6 +1,6 @@
 import pandas as pd
 import numpy as np
-from sklearn.model_selection import cross_val_score
+from sklearn.model_selection import KFold, cross_val_score
 
 from src.utils import ModelNature, Tech
 from src.model import Model
@@ -44,7 +44,7 @@ def test_data(file_data: str, supervised: bool):
     return X, Y
 
 
-def load_partial_data(file_data: str, supervised: bool):
+def load_partial_data(file_data: str, supervised: bool, limit: int):
     """
     Load data from the data dir, according to parameters
     """
@@ -54,8 +54,6 @@ def load_partial_data(file_data: str, supervised: bool):
 
     X = X[:limit]
     Y = Y[:limit]
-    # print(X)
-    # print(Y)
     return X, Y
 
 
@@ -84,7 +82,6 @@ def create_model(
     """
 
     model = Model(
-        name="Super Model",
         nature=nature,
         algorithm=algorithm,
         data=data,
@@ -124,3 +121,14 @@ def evaluate_estimators(
     X, Y = load_full_data(data, supervised)
 
     print(cross_val_score(estimator(seed=seed), X, Y, cv=5).mean())
+
+
+def perform_cross_validation(model: Model, k_folds: int, max_points: int):
+    X, Y = load_partial_data(model.data, supervised=True, limit=max_points)
+    estimator = (
+        available_untrained_functions.get(model.nature.value)
+        .get(model.algorithm)
+        .get(model.tech.value)
+    )
+    time_elapsed, mean =  model.evaluate_model_cv(X, Y, k_folds, estimator())
+    return time_elapsed, mean

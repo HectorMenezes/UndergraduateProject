@@ -7,19 +7,13 @@ from pydantic import BaseModel, Field, ValidationError, root_validator, validato
 
 argp = ArgumentParser()
 
-argp.add_argument("-t",
-                  required=False,
-                  dest="type",
-                  help="Nature of algorithm.")
-argp.add_argument("-m",
-                  required=False,
-                  dest="model",
-                  help="Model to be trained.")
+argp.add_argument(
+    "-f", required=True, dest="configuration", help="Configuration File, a json"
+)
 
-argp.add_argument("-f",
-                  required=True,
-                  dest="configuration",
-                  help="Configuration File, a json")
+argp.add_argument("-cv", required=False, dest="cross_validation", help="number of cross validation folds", type=int, default=0)
+
+argp.add_argument("-max", required=False, dest="max_data", help="max number of data_points", type=int, default=0)
 
 
 class Tech(Enum):
@@ -58,6 +52,8 @@ def load_configuration(configuration_file: str) -> Cases:
     try:
         return Cases.parse_file(configuration_file)
     except ValidationError as error:
-        print(f"Failed to load configuration file {configuration_file}.\n"
-              f"Details: {error.json()}")
+        print(
+            f"Failed to load configuration file {configuration_file}.\n"
+            f"Details: {error.json()}"
+        )
         quit(101)
