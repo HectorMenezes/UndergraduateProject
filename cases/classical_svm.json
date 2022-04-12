@@ -5,8 +5,9 @@
             "algorithm": "svm",
             "seed": 42,
             "supervised": true,
-            "data": "data_banknote_authentication.txt",
-            "tech": "sklearn"
+            "data": "suffled_data_banknote_authentication.txt",
+            "tech": "sklearn",
+            "local": true
         }
     ]
 }

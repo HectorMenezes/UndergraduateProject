@@ -32,7 +32,7 @@ class Model:
         )
 
     def train_or_load_model(self, local :bool, generating_function: Callable, arguments):
-        self.model = generating_function(**arguments)
+        self.model = generating_function(**{x: arguments[x] for x in arguments if x not in ["seed"]})
 
 
     def evaluate_model_cv(self, X, Y, cv, estimator):

@@ -69,38 +69,21 @@ def load_full_data(file_data: str, supervised: bool):
 
 
 def create_model(
-    nature: ModelNature,
-    algorithm: str,
-    data: str,
-    tech: Tech,
-    supervised: bool,
-    seed: int,
-    local: bool,
+    model: Model,
+    max_points: int
 ):
     """
     Function to create models, load the data
     """
 
-    model = Model(
-        nature=nature,
-        algorithm=algorithm,
-        data=data,
-        tech=tech,
-        seed=seed,
-    )
-
-    X, Y = load_partial_data(data, supervised)
-    # x_testing, y_testing = test_data(data, supervised)
-
+    X, Y = load_partial_data(model.data, True, max_points)
     model.train_or_load_model(
-        local=local,
-        generating_function=available_training_functions.get(nature.value)
-        .get(algorithm)
-        .get(tech.value),
-        arguments={"seed": seed, "X": X, "Y": Y},
+        local=model.local,
+        generating_function=available_training_functions.get(model.nature.value)
+        .get(model.algorithm)
+        .get(model.tech.value),
+        arguments={"seed": model.seed, "X": X, "Y": Y},
     )
-
-    # print(accuracy(model.model, x_testing, y_testing))
 
     return model
 

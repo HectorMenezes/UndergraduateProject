@@ -35,6 +35,7 @@ class Case(BaseModel):
     data: str
     tech: Tech
     local: bool
+    predict: Optional[object]
 
 
 class Cases(BaseModel):
