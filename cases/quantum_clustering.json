@@ -1,0 +1,15 @@
+{
+    "cases": [
+        {
+            "nature": "quantum",
+            "algorithm": "clustering",
+            "seed": 42,
+            "supervised": false,
+            "data": "suffled_data_banknote_authentication.txt",
+            "tech": "qiskit",
+            "local": true
+        }
+    ]
+}
+
+

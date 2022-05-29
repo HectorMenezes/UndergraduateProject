@@ -1,7 +1,7 @@
 """
 Module to generate SVM model after the provided data and then
-persists it into a pickle file.
-# """
+persists it into a pickle file. 
+"""
 from typing import Any
 from sklearn.svm import SVC
 

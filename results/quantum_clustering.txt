@@ -1,0 +1,40 @@
+Datapoints: 20
+Time:  4.607048034667969
+Score:  1.0
+
+Datapoints: 30
+Time:  6.997480392456055
+Score:  1.0
+
+Datapoints: 40
+Time:  11.579269409179688
+Score:  1.0
+
+Datapoints: 50
+Time:  45.497302293777466
+Score:  1.0
+
+Datapoints: 60
+Time:  64.58311438560486
+Score:  0.8934869223326036
+
+Datapoints: 70
+Time:  66.98790144920349
+Score:  0.9456275964698213
+
+Datapoints: 80
+Time:  68.50019097328186
+Score:  0.733709409620754
+
+Datapoints: 90
+Time:  99.77293944358826
+Score:  1.0
+
+Datapoints: 100
+Time:  113.15765070915222
+Score:  0.9288666847637899
+
+Datapoints: 200
+Time:  319.9188463687897
+Score:  1.0
+

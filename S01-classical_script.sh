@@ -10,4 +10,4 @@ sh run.sh -f cases/classical_svm_new.json -cv 5 -max 100
 sh run.sh -f cases/classical_svm_new.json -cv 5 -max 200
 sh run.sh -f cases/classical_svm_new.json -cv 5 -max 300
 sh run.sh -f cases/classical_svm_new.json -cv 5 -max 400
-sh run.sh -f cases/classical_svm_new.json -cv 5 -max 500z
+sh run.sh -f cases/classical_svm_new.json -cv 5 -max 500

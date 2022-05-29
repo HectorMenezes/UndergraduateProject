@@ -1,0 +1,15 @@
+{
+    "cases": [
+        {
+            "nature": "classical",
+            "algorithm": "clustering",
+            "seed": 42,
+            "supervised": false,
+            "data": "suffled_data_banknote_authentication.txt",
+            "tech": "sklearn",
+            "local": true
+        }
+    ]
+}
+
+

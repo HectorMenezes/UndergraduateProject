@@ -1,0 +1,13 @@
+sh run.sh -f cases/classical_clustering.json -max 20
+sh run.sh -f cases/classical_clustering.json -max 30
+sh run.sh -f cases/classical_clustering.json -max 40
+sh run.sh -f cases/classical_clustering.json -max 50
+sh run.sh -f cases/classical_clustering.json -max 60
+sh run.sh -f cases/classical_clustering.json -max 70
+sh run.sh -f cases/classical_clustering.json -max 80
+sh run.sh -f cases/classical_clustering.json -max 90
+sh run.sh -f cases/classical_clustering.json -max 100
+sh run.sh -f cases/classical_clustering.json -max 200
+sh run.sh -f cases/classical_clustering.json -max 300
+sh run.sh -f cases/classical_clustering.json -max 400
+sh run.sh -f cases/classical_clustering.json -max 500
